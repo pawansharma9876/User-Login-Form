@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="login-container">
+                    <h1>Signup Form</h1>
+                    <form [formGroup]="userDetail" (ngSubmit)="signUp()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="First Name" formControlName="fName">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Last Name" formControlName="lName">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email Id" formControlName="usrEmail">
+                            <span class="text-danger" *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched">Please enter a valid email.</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Create Password" formControlName="password">
+                            <span class="text-danger" *ngIf="pwdValidator && pwdValidator.invalid && pwdValidator.touched">Minimum of 8 characters required.</span>
+                        </div>
+                        <a href="#" class="btn btn-success">Signup</a>                   
+                    </form>               
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JavaScript (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
